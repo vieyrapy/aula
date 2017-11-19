@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cursoporcarreras</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Facultad</th>
+      <th>Carrera</th>
+      <th>Curso</th>
+      <th>Semestre</th>
+      <th>Cantidadalumno</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cursoporcarreras.each do |cursoporcarrera| %>
+      <tr>
+        <td><%= cursoporcarrera.facultad_id %></td>
+        <td><%= cursoporcarrera.carrera_id %></td>
+        <td><%= cursoporcarrera.curso_id %></td>
+        <td><%= cursoporcarrera.semestre %></td>
+        <td><%= cursoporcarrera.cantidadalumno %></td>
+        <td><%= link_to 'Show', cursoporcarrera %></td>
+        <td><%= link_to 'Edit', edit_cursoporcarrera_path(cursoporcarrera) %></td>
+        <td><%= link_to 'Destroy', cursoporcarrera, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cursoporcarrera', new_cursoporcarrera_path %>

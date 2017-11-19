@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Facultad:</strong>
+  <%= @cursoporcarrera.facultad_id %>
+</p>
+
+<p>
+  <strong>Carrera:</strong>
+  <%= @cursoporcarrera.carrera_id %>
+</p>
+
+<p>
+  <strong>Curso:</strong>
+  <%= @cursoporcarrera.curso_id %>
+</p>
+
+<p>
+  <strong>Semestre:</strong>
+  <%= @cursoporcarrera.semestre %>
+</p>
+
+<p>
+  <strong>Cantidadalumno:</strong>
+  <%= @cursoporcarrera.cantidadalumno %>
+</p>
+
+<%= link_to 'Edit', edit_cursoporcarrera_path(@cursoporcarrera) %> |
+<%= link_to 'Back', cursoporcarreras_path %>

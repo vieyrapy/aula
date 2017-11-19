@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  facultad_id: 1
+  carrera_id: 1
+  curso_id: 1
+  semestre: MyString
+  cantidadalumno: 1
+
+two:
+  facultad_id: 1
+  carrera_id: 1
+  curso_id: 1
+  semestre: MyString
+  cantidadalumno: 1

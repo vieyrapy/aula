@@ -1,0 +1,2 @@
+class Diadelasemana < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Cursoporcarrera < ApplicationRecord
+end

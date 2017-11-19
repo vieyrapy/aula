@@ -1,0 +1,2 @@
+class Asignaraula < ApplicationRecord
+end

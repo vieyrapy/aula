@@ -1,0 +1,32 @@
+<%= form_with(model: asignaraula, local: true) do |form| %>
+  <% if asignaraula.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(asignaraula.errors.count, "error") %> prohibited this asignaraula from being saved:</h2>
+
+      <ul>
+      <% asignaraula.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :aula_id %>
+    <%= form.number_field :aula_id, id: :asignaraula_aula_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cursoporcarrera_id %>
+    <%= form.number_field :cursoporcarrera_id, id: :asignaraula_cursoporcarrera_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dia_id %>
+    <%= form.number_field :dia_id, id: :asignaraula_dia_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

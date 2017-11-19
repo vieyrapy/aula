@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  bloque: MyString
+  capacidad: 1
+  equipamiento: MyString
+  ocupado: false
+
+two:
+  nombre: MyString
+  bloque: MyString
+  capacidad: 1
+  equipamiento: MyString
+  ocupado: false
