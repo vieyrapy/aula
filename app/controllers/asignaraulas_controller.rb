@@ -21,22 +21,42 @@ class AsignaraulasController < ApplicationController
   def edit
   end
 
+
+
   # POST /asignaraulas
   # POST /asignaraulas.json
   def create
-    @asignaraula = Asignaraula.new(asignaraula_params)
+    #@asignaraula = Asignaraula.new(asignaraula_params)
+     asignaciones = Asignaraula.asignar_aleatoriamente
+
+    begin 
+      Asignaraula.transaction do
+        #guardo las asignaciones, debe ser una trasaccion, si al guardar una falla, todas deben fallar,
+        # o sea, si no puede guardar una asignación que no guarde ninguna, para no hacer a media y tener inconsistencia de datos 
+        asignaciones.each{|asing| asign.save!}
+      end
+      @succes = true
+
+      rescue=> e
+      #por si hay alguna excepcion en save muestre un mensaje al usuario
+      flash[:error] = e.message 
+      logger.error(e.backtrace)
+    end 
 
     respond_to do |format|
-      if @asignaraula.save
-        format.html { redirect_to @asignaraula, notice: 'Asignaraula was successfully created.' }
+      if @succes
+        format.html { redirect_to @asignaraula, succes: 'Se han asignado semestres a aulas exitosamente' }
         format.json { render :show, status: :created, location: @asignaraula }
       else
         format.html { render :new }
         format.json { render json: @asignaraula.errors, status: :unprocessable_entity }
       end
     end
+         
+  
   end
 
+ 
   # PATCH/PUT /asignaraulas/1
   # PATCH/PUT /asignaraulas/1.json
   def update
@@ -69,6 +89,6 @@ class AsignaraulasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asignaraula_params
-      params.require(:asignaraula).permit(:aula_id, :cursoporcarrera_id, :dia_id)
+      params.require(:asignaraula).permit(:aula_id, :cursoporcarrera_id, :diadelasemana_id)
     end
 end
