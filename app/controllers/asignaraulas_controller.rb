@@ -33,11 +33,11 @@ class AsignaraulasController < ApplicationController
       Asignaraula.transaction do
         #guardo las asignaciones, debe ser una trasaccion, si al guardar una falla, todas deben fallar,
         # o sea, si no puede guardar una asignación que no guarde ninguna, para no hacer a media y tener inconsistencia de datos 
-        asignaciones.each{|asing| asign.save!}
+        asignaciones.each{|asign| asign.save!}
       end
       @succes = true
 
-      rescue=> e
+      rescue => e
       #por si hay alguna excepcion en save muestre un mensaje al usuario
       flash[:error] = e.message 
       logger.error(e.backtrace)
@@ -45,7 +45,7 @@ class AsignaraulasController < ApplicationController
 
     respond_to do |format|
       if @succes
-        format.html { redirect_to @asignaraula, succes: 'Se han asignado semestres a aulas exitosamente' }
+        format.html { redirect_to asignaraulas_url, succes: 'Se han asignado semestres a aulas exitosamente' }
         format.json { render :show, status: :created, location: @asignaraula }
       else
         format.html { render :new }
