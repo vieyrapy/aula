@@ -2,18 +2,17 @@ class Asignaraula < ApplicationRecord
 belongs_to :aula
 belongs_to :cursoporcarrera
 
+
 	def self.asignar_aleatoriamente 
 		asignaciones = []
-		todos_semestres = Aula.all.shuffle #Desordena el arreglo
-		todas_aulas = []
+		todos_cursos = Cursoporcarrera.all.shuffle #Desordena el arreglo
+		todas_aulas  = Aula.all.shuffle #Desordena el arreglo
 		aulas_asignadas= []
 		
-		todos_semestres.each_with_index do |semestre, i|
-			# se asigna aula a cada uno de los semestres, año de la carrera, facultad y eso no deberían ser datos de asignacion de aula sino que del semestre, 
-			# veo que tu diseño de base de datos esta mal, o se, falta pensar un poco mas 
+		todos_cursos.each_with_index do |semestre, i|
+			# se asigna aula a cada uno de los cursos
 
 			#pregunto si es que ya no asigné todas las las aulas y aún queda algun aula disponible para este semestre 
-
 			if aulas_asignadas.size != todas_aulas.size 
 				# si hay aula disponible, la tomamos 
 				aula_elegida = todas_aulas[i] 
@@ -23,5 +22,6 @@ belongs_to :cursoporcarrera
 				aulas_asignadas << aula_elegida
 			end
 		end
+		asignaciones
 	end 
 end

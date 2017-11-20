@@ -33,7 +33,7 @@ class AsignaraulasController < ApplicationController
       Asignaraula.transaction do
         #guardo las asignaciones, debe ser una trasaccion, si al guardar una falla, todas deben fallar,
         # o sea, si no puede guardar una asignación que no guarde ninguna, para no hacer a media y tener inconsistencia de datos 
-        asignaciones.each{|asign| asign.save!}
+        asignaciones.each{|a| a.save!}
       end
       @succes = true
 
