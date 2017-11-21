@@ -20,6 +20,9 @@ belongs_to :cursoporcarrera
 				asignacion = Asignaraula.new(aula_id: aula_elegida.id, cursoporcarrera_id: semestre.id, diadelasemana_id: 1) 
 				#guardo aulas elegidas en aulas asignadas 
 				aulas_asignadas << aula_elegida
+
+				#guardo aulas elegidas en aulas asignadas 
+				asignaciones << asignacion
 			end
 		end
 		asignaciones
